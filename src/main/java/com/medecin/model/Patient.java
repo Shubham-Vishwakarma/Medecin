@@ -1,17 +1,17 @@
 package com.medecin.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.Locale;
+import java.util.Objects;
 
 @Table(name = "patient")
 @Entity
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Patient {
@@ -42,5 +42,19 @@ public class Patient {
         this.gender = gender;
         this.age = age;
         this.contact = contact;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Patient patient = (Patient) o;
+
+        return Objects.equals(id, patient.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1748842812;
     }
 }

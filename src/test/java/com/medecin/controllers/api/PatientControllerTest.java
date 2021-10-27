@@ -56,7 +56,13 @@ public class PatientControllerTest {
 
     @Test
     public void addNewPatientTest() throws Exception {
-        Patient patient = new Patient("Shubham", "Vishwakarma", "Male", 23, "8655676678");
+        Patient patient = Patient.builder()
+                .firstName("Shubham")
+                .lastName("Vishwakarma")
+                .gender("Male")
+                .age(23)
+                .contact("8655676678")
+                .build();
 
         Mockito.when(patientRepository.save(patient)).thenReturn(patient);
 

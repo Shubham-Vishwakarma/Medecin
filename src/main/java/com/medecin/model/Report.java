@@ -1,9 +1,17 @@
 package com.medecin.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Table(name = "report")
 @Entity
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Report {
 
     @Id
@@ -18,29 +26,4 @@ public class Report {
     @Column(name = "doctor_id", nullable = true)
     private long doctorId;
 
-    public Report() {}
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(long patientId) {
-        this.patientId = patientId;
-    }
-
-    public long getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(long doctorId) {
-        this.doctorId = doctorId;
-    }
 }

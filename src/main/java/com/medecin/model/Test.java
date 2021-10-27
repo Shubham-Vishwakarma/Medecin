@@ -1,9 +1,17 @@
 package com.medecin.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Table(name = "test")
 @Entity
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "test_generator")
@@ -16,30 +24,4 @@ public class Test {
 
     @Column(name = "price", nullable = true)
     private int price;
-
-    public Test() {}
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 }

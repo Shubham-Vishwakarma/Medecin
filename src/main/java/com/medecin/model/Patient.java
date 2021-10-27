@@ -1,10 +1,19 @@
 package com.medecin.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Locale;
 
 @Table(name = "patient")
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "patient_generator")
@@ -27,62 +36,11 @@ public class Patient {
     @Column(name = "contact", nullable = false)
     private String contact;
 
-    public Patient() {}
-
     public Patient(String firstName, String lastName, String gender, int age, String contact) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender.toUpperCase(Locale.ROOT);
+        this.gender = gender;
         this.age = age;
         this.contact = contact;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contactNumber) {
-        this.contact = contactNumber;
-    }
-
 }

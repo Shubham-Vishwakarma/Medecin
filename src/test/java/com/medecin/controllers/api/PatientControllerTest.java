@@ -67,6 +67,7 @@ public class PatientControllerTest {
 
         mockMvc.perform(mockRequest)
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].firstName", is("Shubham")));
+                .andExpect(jsonPath("$", notNullValue()))
+                .andExpect(jsonPath("$.firstName", is("Shubham")));
     }
 }

@@ -43,18 +43,4 @@ public class Patient {
         this.age = age;
         this.contact = contact;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Patient patient = (Patient) o;
-
-        return Objects.equals(id, patient.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return 1748842812;
-    }
 }
